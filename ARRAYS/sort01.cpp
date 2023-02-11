@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-    vector<int> a = {0, 1, 0, 1, 1, 0, 0, 0, 1};
+    vector<int> a = {1, 1, 0, 1, 1, 0, 0, 0, 1};
 
     cout << "before sorting 0's and 1's : "<<endl;
     for (auto x : a)
