@@ -58,7 +58,7 @@ Node *insertIntoBST(Node *root, int data)
     }
     else
     {
-        root->left = insertIntoBST(root->left, data);
+        root->right = insertIntoBST(root->right, data);
     }
 
     return root;
