@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool find(vector<int> &arr, int n, int sum, vector<vector<bool>> &dp)
+bool find(vector<int> &arr, int n, int sum, vector<vector<int>> &dp)
 {
     if (n == 0)
     {
@@ -21,7 +21,7 @@ bool find(vector<int> &arr, int n, int sum, vector<vector<bool>> &dp)
     if (sum == 0)
         return true;
 
-    if (dp[n][sum])
+    if (dp[n][sum]!=-1)
     {
         return dp[n][sum];
     }
@@ -41,7 +41,7 @@ int main()
     vector<int> arr = {1,5,11,5};
     int sum = 22;
     int ssum = 11;
-    vector<vector<bool>> dp(4, vector<bool>(ssum + 1, false));
+    vector<vector<int>> dp(4, vector<int>(ssum + 1, false));
     cout << find(arr, 3, ssum, dp);
     return 0;
 }
