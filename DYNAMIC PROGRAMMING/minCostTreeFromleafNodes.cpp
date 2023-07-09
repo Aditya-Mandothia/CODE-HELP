@@ -89,6 +89,7 @@ public:
         vector<vector<int>> dp(n + 1, vector<int>(n + 1, -1));
 
         // int ans = solve1(arr,maxi,0,n-1,dp);
+        //{6,4,4};
         int ans = solve2(arr, maxi);
         return ans;
     }
