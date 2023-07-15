@@ -5,7 +5,7 @@ using namespace std;
 class Solution
 {
 public:
-    void bfs(int row, int col, vector<vector<int>> vis &vis, vector<vector<char>> &grid)
+    void bfs(int row, int col, vector<vector<int>> &vis, vector<vector<char>> grid)
     {
 
         vis[row][col] = 1;
