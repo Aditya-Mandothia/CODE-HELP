@@ -39,7 +39,7 @@ public:
 
         for (int i = 0; i < n - 1; i++)
         {
-            // do relaxation
+            // do relaxation n-1 times
 
             for (auto t : adjList)
             {
@@ -56,6 +56,36 @@ public:
                 }
             }
         }
+
+        // updating 1 more time to see, if it updates then it will be having a negative cycle.
+
+        bool negativeCycle = false;
+        
+            for (auto t : adjList)
+            {
+                for (auto nbr : t.second)
+                {
+                    int u = t.first;
+                    int v = nbr.first;
+                    int wt = nbr.second;
+
+                    if (dist[u] != INT_MAX and dist[u] + wt < dist[v])
+                    {
+                        dist[v] = dist[u] + wt;
+                        negativeCycle=true;
+
+                        if(negativeCycle)
+                        {
+                            break;
+                        }
+
+
+                    }
+                }
+            }
+
+        cout<<"Contains negative cycle"<<endl;
+
 
         for (auto x : dist)
         {
