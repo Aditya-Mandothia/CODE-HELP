@@ -92,6 +92,49 @@ public:
             cout << x << " ";
         }
     }
+
+    void floydWarshal(int n)
+    {
+        vector<vector<int>>dist(n,vector<int>(n,1e9));
+
+        for(int i=0;i<n;i++)
+        {
+            dist[i][i]=0;
+        }
+
+        //update weights according to the graph
+        for(auto t:adjList)
+        {
+            for(auto nbr : t.second)
+            {
+                int u=t.first;
+                int v=nbr.first;
+                int wt= nbr.second;
+                dist[u][v]=wt;
+            }
+        }
+
+        for(int helper=0;helper<n;helper++)
+        {
+            for(int src=0;src<n;src++)
+            {
+                for(int dest=0;dest<n;dest++)
+                {
+                    dist[src][dest]= min(dist[src][dest], dist[src][helper] + dist[helper][dest]);
+                }
+            }
+        }
+
+       for(auto x : dist)
+       {
+            for(auto y : x)
+            {
+                cout<<y<<" ";
+            }
+
+            cout<<endl;
+       }
+    }
 };
 
 int main()
